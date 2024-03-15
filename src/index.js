@@ -4,10 +4,19 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+if(localStorage.getItem('tp-todo')){
+  var list = JSON.parse(localStorage.getItem('tp-todo'));
+}else{
+  var list = [];
+  localStorage.setItem('tp-todo', JSON.stringify(list));
+}
+
+
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <App list={list} />
   </React.StrictMode>
 );
 
